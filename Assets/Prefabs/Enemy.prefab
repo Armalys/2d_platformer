@@ -13,10 +13,12 @@ GameObject:
   - component: {fileID: 4474472477558803830}
   - component: {fileID: 2432733094941147977}
   - component: {fileID: -1435593574143370052}
+  - component: {fileID: 2705036366785016431}
   - component: {fileID: 7746993232187241824}
+  - component: {fileID: 8958965697993268371}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -175,7 +177,26 @@ MonoBehaviour:
   _rb: {fileID: 4474472477558803830}
   _animator: {fileID: 7746993232187241824}
   _spriteRenderer: {fileID: 4784160409758436938}
-  _speed: 2
+  _speed: 1
+--- !u!114 &2705036366785016431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3635572438642184146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddbe9d2758fa4cd09734ffdde7658617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _raycastDistance: 4
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _moveSpeed: 5
+  _rb: {fileID: 4474472477558803830}
+  _player: {fileID: 2306370272929266295, guid: 00215f51c2d5bf54e81d946124a95870, type: 3}
 --- !u!95 &7746993232187241824
 Animator:
   serializedVersion: 5
@@ -197,3 +218,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8958965697993268371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3635572438642184146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16a7fb3a52434fa29abd050c303e852c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 5
+  _currentHealth: 0
