@@ -9,7 +9,7 @@ public class Mover : MonoBehaviour
     [SerializeField] private float _moveSpeed = 5f;
     [SerializeField] private float _jumpForce = 10f;
     [SerializeField] private Transform _groundCheck;
-    [SerializeField] private Rigidbody2D _rb;
+    [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private Animator _animator;
     [SerializeField] private SpriteRenderer _spriteRenderer;
@@ -31,8 +31,8 @@ public class Mover : MonoBehaviour
     {
         string xVelocity = "xVelocity";
 
-        _rb.velocity = new Vector2(horizontal * _moveSpeed, _rb.velocity.y);
-        _animator.SetFloat(xVelocity, Math.Abs(_rb.velocity.x));
+        _rigidbody.velocity = new Vector2(horizontal * _moveSpeed, _rigidbody.velocity.y);
+        _animator.SetFloat(xVelocity, Math.Abs(_rigidbody.velocity.x));
         Flip();
     }
 
@@ -46,12 +46,12 @@ public class Mover : MonoBehaviour
     {
         if (Input.GetButtonDown(Jump) && IsGrounded())
         {
-            _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
+            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _jumpForce);
         }
     }
 
     private void Flip()
     {
-        _spriteRenderer.flipX = _rb.velocity.x < 0f;
+        _spriteRenderer.flipX = _rigidbody.velocity.x < 0f;
     }
 }

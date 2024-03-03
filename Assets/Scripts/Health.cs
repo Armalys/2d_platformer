@@ -12,12 +12,12 @@ public class Health : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag(Tags.Enemy.ToString()) || other.CompareTag(Tags.Player.ToString()))
+        if (other.GetComponent<Enemy>() || other.GetComponent<Player>())
         {
             int damage = 1;
             TakeDamage(damage);
         }
-        else if (other.CompareTag(Tags.FirstAidKit.ToString()))
+        else if (other.GetComponent<FirstAidKit>())
         {
             Heal();
         }
@@ -25,11 +25,9 @@ public class Health : MonoBehaviour
 
     private void TakeDamage(int damage)
     {
-        if (_currentHealth > damage)
-        {
-            _currentHealth -= damage;
-        }
-        else
+        _currentHealth = Mathf.Clamp(_currentHealth - damage, 0, _maxHealth);
+
+        if (_currentHealth == 0)
         {
             Destroy(gameObject);
         }
@@ -37,9 +35,6 @@ public class Health : MonoBehaviour
 
     private void Heal()
     {
-        if (_currentHealth < _maxHealth)
-        {
-            _currentHealth = _maxHealth;
-        }
+        _currentHealth = Mathf.Clamp(_maxHealth, 0, _maxHealth);
     }
 }

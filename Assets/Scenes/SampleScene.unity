@@ -329,6 +329,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2175802614176041927, guid: 7fba3b40a14ffc3488394a71cc8ccd66, type: 3}
   m_PrefabInstance: {fileID: 4005230539247048525}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &398975138 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 3034613596019568714, guid: 00215f51c2d5bf54e81d946124a95870, type: 3}
+  m_PrefabInstance: {fileID: 6859774012961627890}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &408587205
 GameObject:
   m_ObjectHideFlags: 0
@@ -4733,6 +4738,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!50 &1388204365 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 4474472477558803830, guid: 8a5cbfb356aa0f04592bdb5725e4b581, type: 3}
+  m_PrefabInstance: {fileID: 2026888396}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1440876057
 GameObject:
   m_ObjectHideFlags: 0
@@ -4869,6 +4879,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1648111161}
   - component: {fileID: 1648111162}
+  - component: {fileID: 1648111163}
   m_Layer: 0
   m_Name: Point B
   m_TagString: PivotPoint
@@ -4936,6 +4947,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1648111163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648111160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eb3c4532d394c218acf8d0d766dc3b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1669668113
 GameObject:
   m_ObjectHideFlags: 0
@@ -5008,6 +5031,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1763714578}
   - component: {fileID: 1763714579}
+  - component: {fileID: 1763714580}
   m_Layer: 0
   m_Name: Point A
   m_TagString: PivotPoint
@@ -5075,6 +5099,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1763714580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763714577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eb3c4532d394c218acf8d0d766dc3b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1802299983
 GameObject:
   m_ObjectHideFlags: 0
@@ -5114,6 +5150,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1440876058}
     m_Modifications:
+    - target: {fileID: -1435593574143370052, guid: 8a5cbfb356aa0f04592bdb5725e4b581, type: 3}
+      propertyPath: _rigidbody
+      value: 
+      objectReference: {fileID: 1388204365}
+    - target: {fileID: -1435593574143370052, guid: 8a5cbfb356aa0f04592bdb5725e4b581, type: 3}
+      propertyPath: _raycastDistance
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -1435593574143370052, guid: 8a5cbfb356aa0f04592bdb5725e4b581, type: 3}
+      propertyPath: _playerLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 2432733094941147977, guid: 8a5cbfb356aa0f04592bdb5725e4b581, type: 3}
       propertyPath: m_Size.y
       value: 0.88977337
@@ -5126,6 +5174,10 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2705036366785016431, guid: 8a5cbfb356aa0f04592bdb5725e4b581, type: 3}
+      propertyPath: _rigidbody
+      value: 
+      objectReference: {fileID: 1388204365}
     - target: {fileID: 3635572438642184146, guid: 8a5cbfb356aa0f04592bdb5725e4b581, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -5200,8 +5252,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: -1435593574143370052, guid: 8a5cbfb356aa0f04592bdb5725e4b581, type: 3}
+      propertyPath: _rigidbody
+      value: 
+      objectReference: {fileID: 1014938209525882233}
+    - target: {fileID: -1435593574143370052, guid: 8a5cbfb356aa0f04592bdb5725e4b581, type: 3}
       propertyPath: _startPoint
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -1435593574143370052, guid: 8a5cbfb356aa0f04592bdb5725e4b581, type: 3}
+      propertyPath: _raycastDistance
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -1435593574143370052, guid: 8a5cbfb356aa0f04592bdb5725e4b581, type: 3}
+      propertyPath: _playerLayer.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 2432733094941147977, guid: 8a5cbfb356aa0f04592bdb5725e4b581, type: 3}
       propertyPath: m_Size.x
@@ -5223,6 +5287,10 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2705036366785016431, guid: 8a5cbfb356aa0f04592bdb5725e4b581, type: 3}
+      propertyPath: _rigidbody
+      value: 
+      objectReference: {fileID: 1014938209525882233}
     - target: {fileID: 2705036366785016431, guid: 8a5cbfb356aa0f04592bdb5725e4b581, type: 3}
       propertyPath: playerLayer.m_Bits
       value: 64
@@ -5314,6 +5382,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!50 &1014938209525882233 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 4474472477558803830, guid: 8a5cbfb356aa0f04592bdb5725e4b581, type: 3}
+  m_PrefabInstance: {fileID: 1014938209525882224}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4005230539247048525
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5391,6 +5464,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2267296722950602399, guid: 00215f51c2d5bf54e81d946124a95870, type: 3}
+      propertyPath: _rigidbody
+      value: 
+      objectReference: {fileID: 398975138}
     - target: {fileID: 2306370272929266295, guid: 00215f51c2d5bf54e81d946124a95870, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.551038
