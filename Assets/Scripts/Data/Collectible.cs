@@ -1,12 +1,15 @@
+using System;
 using UnityEngine;
 
-public class FirstAidKit : MonoBehaviour
+public class Collectible : MonoBehaviour
 {
+    public Action<GameObject> CollectEvent;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.GetComponent<Player>())
         {
-            Destroy(gameObject);
+            CollectEvent?.Invoke(gameObject);
         }
     }
 }
