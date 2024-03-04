@@ -24,13 +24,13 @@ public class Health : MonoBehaviour
     private void OnEnable()
     {
         _attack.TakeDamageEvent += TakeDamage;
-        _heal.HealEvent += Heal;
+        _heal.HealedEvent += Heal;
     }
 
     private void OnDisable()
     {
         _attack.TakeDamageEvent -= TakeDamage;
-        _heal.HealEvent -= Heal;
+        _heal.HealedEvent -= Heal;
     }
 
     private void TakeDamage()

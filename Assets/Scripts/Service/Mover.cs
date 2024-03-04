@@ -5,6 +5,7 @@ public class Mover : MonoBehaviour
 {
     private const string Horizontal = "Horizontal";
     private const string Jump = "Jump";
+    private const string XVelocity = "xVelocity";
 
     [SerializeField] private float _moveSpeed = 5f;
     [SerializeField] private float _jumpForce = 10f;
@@ -29,10 +30,8 @@ public class Mover : MonoBehaviour
 
     private void Move()
     {
-        string xVelocity = "xVelocity";
-
         _rigidbody.velocity = new Vector2(horizontal * _moveSpeed, _rigidbody.velocity.y);
-        _animator.SetFloat(xVelocity, Math.Abs(_rigidbody.velocity.x));
+        _animator.SetFloat(XVelocity, Math.Abs(_rigidbody.velocity.x));
         Flip();
     }
 
