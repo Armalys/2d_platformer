@@ -11,7 +11,7 @@ namespace Service.HealthBars
 
         private void Awake()
         {
-            SetHealth();
+            SetUp();
         }
 
         private void OnEnable()
@@ -25,6 +25,6 @@ namespace Service.HealthBars
         }
 
         protected abstract void ChangeHealth();
-        protected abstract void SetHealth();
+        protected abstract void SetUp();
     }
 }

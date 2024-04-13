@@ -11,7 +11,7 @@ public class CommonHealthBar : HealthBar
         _slider.value = CurrentHealth;
     }
 
-    protected override void SetHealth()
+    protected override void SetUp()
     {
         _slider.maxValue = MaxHealth;
         _slider.value = CurrentHealth;

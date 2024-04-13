@@ -11,7 +11,7 @@ public class TextHealthBar : HealthBar
         _textMesh.text = $"{CurrentHealth} / {MaxHealth}";
     }
 
-    protected override void SetHealth()
+    protected override void SetUp()
     {
         _textMesh.text = $"{CurrentHealth} / {MaxHealth}";
     }

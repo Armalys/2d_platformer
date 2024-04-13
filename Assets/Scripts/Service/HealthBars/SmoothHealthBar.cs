@@ -11,11 +11,6 @@ namespace Service.HealthBars
 
         private Coroutine _coroutine;
 
-        private void Update()
-        {
-            ChangeHealth();
-        }
-
         protected override void ChangeHealth()
         {
             if (_coroutine != null)
@@ -26,7 +21,7 @@ namespace Service.HealthBars
             _coroutine = StartCoroutine(ChangeHealth(CurrentHealth));
         }
 
-        protected override void SetHealth()
+        protected override void SetUp()
         {
             _slider.maxValue = MaxHealth;
             _slider.value = CurrentHealth;
