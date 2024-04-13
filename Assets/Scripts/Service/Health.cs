@@ -9,9 +9,6 @@ public class Health : MonoBehaviour
     [SerializeField] public int MaxHealth;
     [SerializeField] public int CurrentHealth;
 
-    [SerializeField] private DamageButton _damageButton;
-    [SerializeField] private HealButton _healButton;
-
     public Action HealthChangedEvent;
 
     private Attack _attack;
@@ -31,16 +28,13 @@ public class Health : MonoBehaviour
     private void OnEnable()
     {
         _attack.TakeDamageEvent += TakeDamage;
-        _damageButton.TakeDamageEvent += TakeDamage;
         _heal.HealedEvent += Heal;
-        _healButton.HealEvent += Heal;
     }
 
     private void OnDisable()
     {
         _attack.TakeDamageEvent -= TakeDamage;
-        _damageButton.TakeDamageEvent -= TakeDamage;
-        _healButton.HealEvent -= Heal;
+        _heal.HealedEvent -= Heal;
     }
 
     private void TakeDamage()
