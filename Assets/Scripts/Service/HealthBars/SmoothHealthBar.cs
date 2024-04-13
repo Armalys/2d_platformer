@@ -4,37 +4,32 @@ using UnityEngine.UI;
 
 namespace Service.HealthBars
 {
-    public class SmoothHealthBar : MonoBehaviour
+    public class SmoothHealthBar : HealthBar
     {
         [SerializeField] private Slider _slider;
-        [SerializeField] private int _maxHealth;
         [SerializeField] private float _speedFillBar;
 
-        public void Awake()
+        private Coroutine _coroutine;
+
+        private void Update()
         {
-            SetMaxHealth();
+            ChangeHealth();
         }
 
-        public void Attack()
+        protected override void ChangeHealth()
         {
-            if (_slider.value > _slider.minValue)
+            if (_coroutine != null)
             {
-                StartCoroutine(ChangeHealth(_slider.value - 1f));
+                StopCoroutine(_coroutine);
             }
+
+            _coroutine = StartCoroutine(ChangeHealth(CurrentHealth));
         }
 
-        public void Heal()
+        protected override void SetHealth()
         {
-            if (_slider.value < _slider.maxValue)
-            {
-                StartCoroutine(ChangeHealth(_slider.value + 1f));
-            }
-        }
-
-        private void SetMaxHealth()
-        {
-            _slider.maxValue = _maxHealth;
-            _slider.value = _maxHealth;
+            _slider.maxValue = MaxHealth;
+            _slider.value = CurrentHealth;
         }
 
         private IEnumerator ChangeHealth(float targetHealth)

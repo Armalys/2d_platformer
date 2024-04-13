@@ -1,35 +1,30 @@
 using UnityEngine;
-using UnityEngine.UI;
 
-public class HealthBar : MonoBehaviour
+namespace Service.HealthBars
 {
-    [SerializeField] private Slider _slider;
-    [SerializeField] private int _maxHealth;
-
-    public void Awake()
+    public abstract class HealthBar : MonoBehaviour
     {
-        SetMaxHealth();
-    }
+        [SerializeField] private Health _health;
 
-    public void Attack()
-    {
-        if (_slider.value > _slider.minValue)
+        protected int MaxHealth => _health.MaxHealth;
+        protected int CurrentHealth => _health.CurrentHealth;
+
+        private void Awake()
         {
-            _slider.value -= 1;
+            SetHealth();
         }
-    }
 
-    public void Heal()
-    {
-        if (_slider.value < _slider.maxValue)
+        private void OnEnable()
         {
-            _slider.value += 1;
+            _health.HealthChangedEvent += ChangeHealth;
         }
-    }
 
-    private void SetMaxHealth()
-    {
-        _slider.maxValue = _maxHealth;
-        _slider.value = _maxHealth;
+        private void OnDisable()
+        {
+            _health.HealthChangedEvent -= ChangeHealth;
+        }
+
+        protected abstract void ChangeHealth();
+        protected abstract void SetHealth();
     }
 }
