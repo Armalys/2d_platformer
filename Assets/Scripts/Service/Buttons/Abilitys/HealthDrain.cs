@@ -12,7 +12,7 @@ namespace Service.Buttons.Abilitys
         [SerializeField] private int _drainDamage = 1;
         [SerializeField] private int _drainHeal = 1;
 
-        private Player _player;
+        private Health _playerHealth;
         private WaitForSeconds _wait;
         private Coroutine _coroutine;
 
@@ -34,23 +34,19 @@ namespace Service.Buttons.Abilitys
 
                 foreach (var collider in colliders)
                 {
-                    if (collider.TryGetComponent(out Enemy enemy) && enemy.TryGetComponent(out Health health) &&
-                        health.CurrentHealth > 0)
+                    if (collider.TryGetComponent(out Enemy enemy) && enemy.TryGetComponent(out Health enemyHealth))
                     {
-                        _player.TryGetComponent(out Heal heal);
-                        heal.HealedEvent?.Invoke(_drainHeal);
-                        enemy.TryGetComponent(out Attack attack);
-                        attack.TakeDamageEvent?.Invoke(_drainDamage);
+                        enemyHealth.TakeDamage(_drainDamage);
+                        _playerHealth.Heal(_drainHeal);
                     }
                 }
-
                 yield return _wait;
             }
         }
 
         private void Awake()
         {
-            TryGetComponent(out _player);
+            TryGetComponent(out _playerHealth);
             _wait = new WaitForSeconds(_interval);
         }
     }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Heal : MonoBehaviour
 {
-    public Action<int> HealedEvent;
+    public event Action<int> HealedEvent;
 
     private int _defaultHeal = 10;
 

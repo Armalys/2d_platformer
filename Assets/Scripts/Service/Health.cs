@@ -1,5 +1,4 @@
 using System;
-using Service.Buttons;
 using UnityEngine;
 
 [RequireComponent(typeof(Attack))]
@@ -14,12 +13,29 @@ public class Health : MonoBehaviour
     private Attack _attack;
     private Heal _heal;
 
+    public void TakeDamage(int damage = 1)
+    {
+        CurrentHealth = Mathf.Clamp(CurrentHealth - damage, 0, MaxHealth);
+        HealthChangedEvent?.Invoke();
+
+        if (CurrentHealth == 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void Heal(int heal = 10)
+    {
+        CurrentHealth = Mathf.Clamp(CurrentHealth + heal, 0, MaxHealth);
+        HealthChangedEvent?.Invoke();
+    }
+
     private void Start()
     {
         CurrentHealth = MaxHealth;
     }
 
-    public void Awake()
+    private void Awake()
     {
         _attack = GetComponent<Attack>();
         _heal = GetComponent<Heal>();
@@ -35,22 +51,5 @@ public class Health : MonoBehaviour
     {
         _attack.TakeDamageEvent -= TakeDamage;
         _heal.HealedEvent -= Heal;
-    }
-
-    private void TakeDamage(int damage = 1)
-    {
-        CurrentHealth = Mathf.Clamp(CurrentHealth - damage, 0, MaxHealth);
-        HealthChangedEvent?.Invoke();
-
-        if (CurrentHealth == 0)
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    private void Heal(int heal = 10)
-    {
-        CurrentHealth = Mathf.Clamp(CurrentHealth + heal, 0, MaxHealth);
-        HealthChangedEvent?.Invoke();
     }
 }

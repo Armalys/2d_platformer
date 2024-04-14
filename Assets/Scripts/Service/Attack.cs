@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    public Action<int> TakeDamageEvent;
+    public event Action<int> TakeDamageEvent;
 
     private int _defaultDamage = 1;
 
