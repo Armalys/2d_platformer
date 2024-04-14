@@ -7,7 +7,7 @@ public class Collectible : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<Player>())
+        if (other.TryGetComponent(out Player player))
         {
             CollectEvent?.Invoke(gameObject);
         }

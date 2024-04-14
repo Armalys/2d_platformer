@@ -3,13 +3,15 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    public Action TakeDamageEvent;
+    public Action<int> TakeDamageEvent;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private int _defaultDamage = 1;
+
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.GetComponent<Enemy>() || other.GetComponent<Player>())
+        if (other.collider.TryGetComponent(out Enemy enemy) || other.collider.TryGetComponent(out Player player))
         {
-            TakeDamageEvent?.Invoke();
+            TakeDamageEvent?.Invoke(_defaultDamage);
         }
     }
 }

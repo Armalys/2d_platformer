@@ -37,10 +37,8 @@ public class Health : MonoBehaviour
         _heal.HealedEvent -= Heal;
     }
 
-    private void TakeDamage()
+    private void TakeDamage(int damage = 1)
     {
-        int damage = 1;
-
         CurrentHealth = Mathf.Clamp(CurrentHealth - damage, 0, MaxHealth);
         HealthChangedEvent?.Invoke();
 
@@ -50,9 +48,9 @@ public class Health : MonoBehaviour
         }
     }
 
-    private void Heal()
+    private void Heal(int heal = 10)
     {
-        CurrentHealth = Mathf.Clamp(MaxHealth, 0, MaxHealth);
+        CurrentHealth = Mathf.Clamp(CurrentHealth + heal, 0, MaxHealth);
         HealthChangedEvent?.Invoke();
     }
 }
